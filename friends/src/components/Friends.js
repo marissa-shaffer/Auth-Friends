@@ -3,8 +3,28 @@ import axiosWithAuth from "../utils/axiosWithAuth";
 
 const Friends = () => {
     const [friend, setFriend] = useState([]);
-    const[update, setUpdate] = useState(false);
+    const [update, setUpdate] = useState(false);
 
+    const getData = () => {
+        axiosWithAuth()
+        .get("/friends")
+        .then(res => {
+            console.log(res);
+            setFriend(res.data)
+        })
+        .catch(err => {
+            console.log(err);
+        });
+    } 
+
+    useEffect(() => {
+        getData()
+        setUpdate(false)
+    }, [update])
+
+    const handleChange = e => {
+        return e.target.value;
+    }
 
     return (
         <div>
