@@ -1,5 +1,5 @@
 import React from 'react';
-
+import axiosWithAuth from "../utils/axiosWithAuth";
 
 
 class Login extends React.Component{
@@ -22,12 +22,21 @@ class Login extends React.Component{
 
     login = e => {
         e.preventDefault();
-        this.state({
+        this.setState({
             isFetching: true
         })
 
-        
-    }
+        axiosWithAuth()
+            .post("/login", this.state.credentials)
+            .then(res => {
+                console.log(res);
+                localStorage.setItem("token", res.data.payload);
+                this.props.history.push("/friends");
+            })
+            .catch(err => {
+                console.log(err);
+            }); 
+    };
 
     render () {
         return (
