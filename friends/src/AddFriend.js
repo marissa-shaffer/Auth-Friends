@@ -37,7 +37,25 @@ class AddFriend extends Component {
     render(){
         return (
             <Form onSubmit={this.handleSubmit}>
-
+                <h2>Add a New Friend</h2>
+                <input
+                    name="name"
+                    value={this.state.AddFriend.name}
+                    placeholder="Name"
+                    onChange={this.handleChange}
+                    />
+                <input
+                    name="age"
+                    value={this.state.AddFriend.age}
+                    placeholder="Age"
+                    onChange={this.handleChange}
+                    />
+                <input
+                    name="email"
+                    value={this.state.AddFriend.email}
+                    placeholder="Email"
+                    onChange={this.handleChange}
+                    />
             </Form>
         )
     }
