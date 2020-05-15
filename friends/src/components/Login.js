@@ -2,7 +2,7 @@ import React from 'react';
 
 
 
-class login extends React.Component{
+class Login extends React.Component{
     state = {
         credentials: {
             username: "",
